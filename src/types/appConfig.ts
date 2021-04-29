@@ -1,3 +1,5 @@
+import { ExtensionConfig } from '../extension/types';
+
 export interface AppConfig {
   instanceId: string;
   languages: Array<LanguageConfig>;
@@ -13,3 +15,4 @@ export interface AvatarConfig {
   avatarId: string;
   url: string;
 }
+

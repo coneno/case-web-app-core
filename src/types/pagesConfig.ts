@@ -1,3 +1,4 @@
+import { ExtensionComponentConfig } from "../extension";
 import { DefaultRoutes } from "./routing";
 
 export interface PagesConfig {
@@ -34,12 +35,12 @@ export interface PageItem {
   config: PageItemConfig;
 }
 
+
 type PageItemConfig = TeaserImageConfig | RouterComponentConfig |
   MarkdownComponentConfig | ImageCardConfig | LoginCardConfig | VideoConfig | ImageConfig |
   AccordionListConfig | SimpleCard | SystemInfoConfig | AccountSettingsConfig |
   CommunicationSettingsConfig | DeleteAccountConfig | LogoCreditsConfig |
-  SurveyListConfig | LinkListConfig | MapDataSeriesConfig | LineWithScatterChartConfig
-
+  SurveyListConfig | LinkListConfig | MapDataSeriesConfig | LineWithScatterChartConfig | ExtensionComponentConfig
 
 export interface MarkdownComponentConfig {
   type: 'markdown';
@@ -167,3 +168,4 @@ export interface SurveyListConfig {
 export interface RouterComponentConfig {
   type: 'router';
 }
+

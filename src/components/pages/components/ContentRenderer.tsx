@@ -34,6 +34,7 @@ import { DefaultRoutes } from '../../../types/routing';
 import { setPersistState } from '../../../store/appSlice';
 import { RootState } from '../../../store/rootReducer';
 import { getTranslatedMarkdownPath } from '../../../hooks/useTranslatedMarkdown';
+import { componentBuilder } from '../../../extension/config';
 
 
 interface ContentRendererProps {
@@ -112,7 +113,7 @@ const ContentRenderer: React.FC<ContentRendererProps> = (props) => {
           className={item.className}
           minHeight={item.config.minHeight}
           posterUrl={item.config.posterUrlKey ? t(`${item.itemKey}.${item.config.posterUrlKey}`) : undefined}
-          sources={item.config.videoSources.map(vs => {
+          sources={item.config.videoSources.map((vs:any) => {
             // console.log(t(`${item.itemKey}.${vs.type}`))
             return {
               src: t(`${item.itemKey}.${vs.urlKey}`),
@@ -194,7 +195,7 @@ const ContentRenderer: React.FC<ContentRendererProps> = (props) => {
           className={item.className}
           containerClassName={item.config.className}
           useTitle={item.config.useTitle}
-          images={item.config.images.map(image => {
+          images={item.config.images.map((image:any) => {
             image.altKey = t(`${item.itemKey}.${image.altKey}`);
             return image
           })}
@@ -205,7 +206,7 @@ const ContentRenderer: React.FC<ContentRendererProps> = (props) => {
           key={item.itemKey}
           className={item.className}
           title={t(`${item.itemKey}.title`)}
-          items={item.config.links.map(link => {
+          items={item.config.links.map((link:any) => {
             return {
               label: t(`${item.itemKey}.${link.linkKey}`),
               type: link.type,
@@ -241,6 +242,9 @@ const ContentRenderer: React.FC<ContentRendererProps> = (props) => {
         return <p
           key={item.itemKey}
         >todo</p>
+
+      case 'extension':
+        return componentBuilder(item, i18n.language);
     }
     return <div
       key={item.itemKey}
