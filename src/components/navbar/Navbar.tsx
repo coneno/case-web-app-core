@@ -97,9 +97,9 @@ const Navbar: React.FC<NavbarProps> = (props) => {
   }, [i18n.language])
 
   useEffect(() => {
-    if (hasAuthTokens && !isLoggedIn) {
-      dispatch(dialogActions.openDialogWithoutPayload('signupSuccess'))
-    }
+    //if (hasAuthTokens && !isLoggedIn) {
+    dispatch(dialogActions.openDialogWithoutPayload('login'))
+    // }
   }, [location.pathname])
 
   const handleNavigation = (url: string) => {
