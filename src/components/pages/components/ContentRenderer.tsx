@@ -64,6 +64,8 @@ const shouldHide = (hideWhen?: string, isAuth?: boolean): boolean => {
   return false;
 }
 
+const signupDisabled = process.env.REACT_APP_DISABLE_SIGNUP === 'true';
+
 const ContentRenderer: React.FC<ContentRendererProps> = (props) => {
   const { t, i18n } = useTranslation([props.pageKey, 'global']);
   const dispatch = useDispatch()
@@ -212,6 +214,7 @@ const ContentRenderer: React.FC<ContentRendererProps> = (props) => {
           rememberMeLabel={t(`${item.itemKey}.rememberMeLabel`)}
           passwordForgottenBtn={t(`${item.itemKey}.passwordForgottenBtn`)}
           signupBtn={t(`${item.itemKey}.signupBtn`)}
+          signupDisabled={signupDisabled}
           loginBtn={t(`${item.itemKey}.btn`)}
           persistState={persistState}
           onChangePersistState={(checked) => dispatch(setPersistState(checked))}
