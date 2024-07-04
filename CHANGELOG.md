@@ -1,5 +1,12 @@
 # Changelog
 
+## 2.7.4 - 2024-07-04
+
+### Changed
+
+- Update case-web-ui
+- Use env variable for disabling signup on `LoginCard` component
+
 ## 2.7.3 - 2023-10-25
 
 ### Changed
